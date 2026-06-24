@@ -1,4 +1,5 @@
 using rest_with_asp_net_10_example.Services;
+using rest_with_asp_net_10_example.Services.Impl;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 builder.Services.AddSingleton<MathService>();
+builder.Services.AddScoped<IPersonServices, PersonServicesImpl>();
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
