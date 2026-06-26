@@ -1,10 +1,11 @@
+using rest_with_asp_net_10_example.Configurations;
 using rest_with_asp_net_10_example.Controllers;
 using rest_with_asp_net_10_example.Services;
 using rest_with_asp_net_10_example.Services.Impl;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+builder.AddSerilogLogging();
 
 builder.Services.AddControllers();
 
