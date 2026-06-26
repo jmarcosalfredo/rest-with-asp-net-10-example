@@ -1,5 +1,7 @@
 using rest_with_asp_net_10_example.Configurations;
 using rest_with_asp_net_10_example.Controllers;
+using rest_with_asp_net_10_example.Repositories;
+using rest_with_asp_net_10_example.Repositories.Impl;
 using rest_with_asp_net_10_example.Services;
 using rest_with_asp_net_10_example.Services.Impl;
 
@@ -11,6 +13,7 @@ builder.Services.AddControllers();
 
 builder.Services.AddDatabaseConfiguration(builder.Configuration);
 builder.Services.AddScoped<IPersonServices, PersonServicesImpl>();
+builder.Services.AddScoped<IPersonRepository, PersonRepository>();
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
