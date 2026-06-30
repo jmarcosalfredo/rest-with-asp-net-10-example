@@ -1,16 +1,17 @@
-﻿using rest_with_asp_net_10_example.Model;
+﻿using rest_with_asp_net_10_example.Data.DTO;
+using rest_with_asp_net_10_example.Model;
 
 namespace rest_with_asp_net_10_example.Services;
 
 public interface IPersonServices
 {
-    Person Create(Person person);
+    PersonDTO Create(PersonDTO PersonDTO);
 
-    Person FindById(long id);
+    PersonDTO FindById(long id);
 
-    List<Person> FindAll();
+    List<PersonDTO> FindAll();
 
-    Person Update(Person person);
+    PersonDTO Update(PersonDTO PersonDTO);
 
     void Delete(long id);
 }

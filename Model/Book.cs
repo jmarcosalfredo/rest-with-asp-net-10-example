@@ -23,5 +23,5 @@ public class Book : BaseEntity
 
     [Required]
     [Column("launch_date")]
-    public DateTime LauchDate { get; set; }
+    public DateTime LaunchDate { get; set; }
 }

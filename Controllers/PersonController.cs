@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using rest_with_asp_net_10_example.Data.DTO;
 using rest_with_asp_net_10_example.Model;
 using rest_with_asp_net_10_example.Services;
 
@@ -40,7 +41,7 @@ namespace rest_with_asp_net_10_example.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] Person person)
+        public IActionResult Post([FromBody] PersonDTO person)
         {
             _logger.LogInformation("Creating new person {firstName}", person.FirstName);
             var createdPerson = _personServices.Create(person);
@@ -53,7 +54,7 @@ namespace rest_with_asp_net_10_example.Controllers
         }
 
         [HttpPut]
-        public IActionResult Put([FromBody] Person person)
+        public IActionResult Put([FromBody] PersonDTO person)
         {
             _logger.LogInformation("Updating person by ID: {Id}", person.Id);
             var updatedPerson = _personServices.Update(person);

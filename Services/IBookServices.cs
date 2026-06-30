@@ -1,16 +1,17 @@
-﻿using rest_with_asp_net_10_example.Model;
+﻿using rest_with_asp_net_10_example.Data.DTO;
+using rest_with_asp_net_10_example.Model;
 
 namespace rest_with_asp_net_10_example.Services;
 
 public interface IBookServices
 {
-    Book Create(Book book);
+    BookDTO Create(BookDTO book);
 
-    Book FindById(long id);
+    BookDTO FindById(long id);
 
-    List<Book> FindAll();
+    List<BookDTO> FindAll();
 
-    Book Update(Book book);
+    BookDTO Update(BookDTO book);
 
     void Delete(long id);
 }

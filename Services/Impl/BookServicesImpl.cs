@@ -1,4 +1,5 @@
-﻿using rest_with_asp_net_10_example.Model;
+﻿using rest_with_asp_net_10_example.Data.DTO;
+using rest_with_asp_net_10_example.Model;
 using rest_with_asp_net_10_example.Repositories;
 
 namespace rest_with_asp_net_10_example.Services.Impl;
@@ -6,31 +7,37 @@ namespace rest_with_asp_net_10_example.Services.Impl;
 public class BookServicesImpl : IBookServices
 {
     private IRepository<Book> _repository;
+    private readonly BookConverter _converter;
 
     public BookServicesImpl(IRepository<Book> repository)
     {
         _repository = repository;
+        _converter = new BookConverter();
     }
 
-    public Book Create(Book book)
+    public BookDTO Create(BookDTO book)
     {
-        return _repository.Create(book);
+        var entity = _converter.Parse(book);
+        entity = _repository.Create(entity);
+        return _converter.Parse(entity);
         
     }
 
-    public Book Update(Book book)
+    public BookDTO Update(BookDTO book)
     {
-        return _repository.Update(book);
+        var entity = _converter.Parse(book);
+        entity = _repository.Update(entity);
+        return _converter.Parse(entity);
     }
 
-    public List<Book> FindAll()
+    public List<BookDTO> FindAll()
     {
-        return _repository.FindAll();
+        return _converter.ParseList(_repository.FindAll());
     }
 
-    public Book FindById(long id)
+    public BookDTO FindById(long id)
     {
-        return _repository.FindById(id);
+        return _converter.Parse(_repository.FindById(id));
     }
 
     public void Delete(long id)
