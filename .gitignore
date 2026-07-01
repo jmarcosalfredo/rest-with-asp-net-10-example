@@ -83,3 +83,6 @@ __pycache__/
 # Misc temporary/backup files
 ~$*
 *~
+
+# VS Code workspace files (personal settings)
+*.code-workspace

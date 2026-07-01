@@ -1,5 +1,5 @@
 ﻿using rest_with_asp_net_10_example.Data.Converter.Contract;
-using rest_with_asp_net_10_example.Data.DTO;
+using rest_with_asp_net_10_example.Data.DTO.V2;
 using rest_with_asp_net_10_example.Model;
 
 namespace rest_with_asp_net_10_example.Data.Converter.Impl;
@@ -16,6 +16,7 @@ public class PersonConverter : IParser<PersonDTO, Person>, IParser<Person, Perso
             LastName = origin.LastName,
             Address = origin.Address,
             Gender = origin.Gender
+            // BirthDay = origin.BirthDay
         };
     }
 
@@ -28,7 +29,8 @@ public class PersonConverter : IParser<PersonDTO, Person>, IParser<Person, Perso
             FirstName = origin.FirstName,
             LastName = origin.LastName,
             Address = origin.Address,
-            Gender = origin.Gender
+            Gender = origin.Gender,
+            BirthDay = DateTime.Now // origin.BirthDay
         };
     }
 

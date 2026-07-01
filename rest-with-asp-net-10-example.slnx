@@ -1,0 +1,6 @@
+<Solution>
+  <Folder Name="/Project/">
+    <Project Path="Project/rest-with-asp-net-10-example.csproj" />
+  </Folder>
+  <Project Path="rest-with-asp-net-10-example.Tests/rest-with-asp-net-10-example.Tests.csproj" />
+</Solution>
