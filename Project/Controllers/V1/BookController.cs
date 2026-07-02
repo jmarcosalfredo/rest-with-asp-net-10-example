@@ -19,6 +19,10 @@ namespace rest_with_asp_net_10_example.Controllers.V1
         }
 
         [HttpGet]
+        [Produces("application/json", "application/xml")]
+        [ProducesResponseType(200, Type = typeof(List<BookDTO>))]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         public IActionResult Get()
         {
             _logger.LogInformation("Getting all Books");
@@ -26,6 +30,10 @@ namespace rest_with_asp_net_10_example.Controllers.V1
         }
 
         [HttpGet("{id}")]
+        [Produces("application/json", "application/xml")]
+        [ProducesResponseType(200, Type = typeof(BookDTO))]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         public IActionResult Get(long id)
         {
             _logger.LogInformation("Getting Book by ID: {Id}", id);
@@ -39,6 +47,10 @@ namespace rest_with_asp_net_10_example.Controllers.V1
         }
 
         [HttpPost]
+        [Produces("application/json", "application/xml")]
+        [ProducesResponseType(200, Type = typeof(BookDTO))]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         public IActionResult Post([FromBody] BookDTO book)
         {
             _logger.LogInformation("Creating new Book {firstName}", book.Title);
@@ -52,6 +64,10 @@ namespace rest_with_asp_net_10_example.Controllers.V1
         }
 
         [HttpPut]
+        [Produces("application/json", "application/xml")]
+        [ProducesResponseType(200, Type = typeof(BookDTO))]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         public IActionResult Put([FromBody] BookDTO book)
         {
             _logger.LogInformation("Updating Book by ID: {Id}", book.Id);
@@ -68,6 +84,10 @@ namespace rest_with_asp_net_10_example.Controllers.V1
         }
 
         [HttpDelete("{id}")]
+        [Produces("application/json", "application/xml")]
+        [ProducesResponseType(204, Type = typeof(BookDTO))]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         public IActionResult Delete(long id)
         {
             _logger.LogInformation("Deleting Book by ID: {Id}", id);

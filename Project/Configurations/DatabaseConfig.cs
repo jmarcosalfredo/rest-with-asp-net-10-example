@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using rest_with_asp_net_10_example.Model.Context;
 
-namespace rest_with_asp_net_10_example.Controllers;
+namespace rest_with_asp_net_10_example.Configurations;
 
 public static class DatabaseConfig
 {

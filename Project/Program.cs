@@ -11,6 +11,11 @@ builder.AddSerilogLogging();
 
 builder.Services.AddControllers().AddContentNegociation();
 
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddOpenApiConfig();
+builder.Services.AddSwaggerConfig();
+builder.Services.AddRouteConfig();
+
 builder.Services.AddDatabaseConfiguration(builder.Configuration);
 builder.Services.AddEvolveConfiguration(builder.Configuration, builder.Environment);
 
@@ -19,9 +24,6 @@ builder.Services.AddScoped<IBookServices, BookServicesImpl>();
 builder.Services.AddScoped<IPersonServicesV2, PersonServicesImplV2>();
 
 builder.Services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
-
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
 
 var app = builder.Build();
 
@@ -36,5 +38,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseSwaggerSpecification();
 
 app.Run();

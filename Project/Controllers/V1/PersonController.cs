@@ -21,6 +21,10 @@ namespace rest_with_asp_net_10_example.Controllers.V1
         }
 
         [HttpGet]
+        [Produces("application/json", "application/xml")]
+        [ProducesResponseType(200, Type = typeof(List<PersonDTO>))]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         public IActionResult Get()
         {
             _logger.LogInformation("Getting all persons");
@@ -30,6 +34,10 @@ namespace rest_with_asp_net_10_example.Controllers.V1
         }
 
         [HttpGet("{id}")]
+        [Produces("application/json", "application/xml")]
+        [ProducesResponseType(200, Type = typeof(PersonDTO))]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         public IActionResult Get(long id)
         {
             _logger.LogInformation("Getting person by ID: {Id}", id);
@@ -45,6 +53,10 @@ namespace rest_with_asp_net_10_example.Controllers.V1
         }
 
         [HttpPost]
+        [Produces("application/json", "application/xml")]
+        [ProducesResponseType(200, Type = typeof(PersonDTO))]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         public IActionResult Post([FromBody] PersonDTO person)
         {
             _logger.LogInformation("Creating new person {firstName}", person.FirstName);
@@ -60,6 +72,10 @@ namespace rest_with_asp_net_10_example.Controllers.V1
         }
 
         [HttpPut]
+        [Produces("application/json", "application/xml")]
+        [ProducesResponseType(200, Type = typeof(PersonDTO))]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         public IActionResult Put([FromBody] PersonDTO person)
         {
             _logger.LogInformation("Updating person by ID: {Id}", person.Id);
@@ -76,6 +92,10 @@ namespace rest_with_asp_net_10_example.Controllers.V1
         }
 
         [HttpDelete("{id}")]
+        [Produces("application/json", "application/xml")]
+        [ProducesResponseType(204, Type = typeof(PersonDTO))]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         public IActionResult Delete(long id)
         {
             _logger.LogInformation("Deleting person by ID: {Id}", id);

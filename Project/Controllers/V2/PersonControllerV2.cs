@@ -21,6 +21,10 @@ namespace rest_with_asp_net_10_example.Controllers.V2
         }
 
         [HttpPost]
+        [Produces("application/json", "application/xml")]
+        [ProducesResponseType(200, Type = typeof(PersonDTO))]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         public IActionResult Post([FromBody] PersonDTO person)
         {
             _logger.LogInformation("Creating new person {firstName}", person.FirstName);
@@ -34,6 +38,10 @@ namespace rest_with_asp_net_10_example.Controllers.V2
         }
 
         [HttpPut]
+        [Produces("application/json", "application/xml")]
+        [ProducesResponseType(200, Type = typeof(PersonDTO))]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         public IActionResult Put([FromBody] PersonDTO person)
         {
             _logger.LogInformation("Updating person by ID: {Id}", person.Id);

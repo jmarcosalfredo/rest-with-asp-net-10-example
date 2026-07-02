@@ -2,7 +2,7 @@
 using Microsoft.Data.SqlClient;
 using Serilog;
 
-namespace rest_with_asp_net_10_example.Controllers;
+namespace rest_with_asp_net_10_example.Configurations;
 
 public static class EvolveConfig
 {
