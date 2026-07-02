@@ -29,7 +29,7 @@ public static class SwaggerConfig
         return services;
     }
 
-    public static IApplicationBuilder UseSwaggerSpecification(this IApplicationBuilder app)
+    public static IApplicationBuilder UseSwaggerConfiguration(this IApplicationBuilder app)
     {
         app.UseSwagger();
         app.UseSwaggerUI(options =>
